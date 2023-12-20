@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.zoom__animate {
+  animation: zoom 300ms linear forwards;
+}
+
+@keyframes zoom {
+  100% {
+    transform: scale(1);
+  }
+}
