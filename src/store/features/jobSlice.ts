@@ -21,7 +21,7 @@ export const jobSlice = createSlice({
   reducers: {
     changeTheme: (state, action) => {
       state.theme = state.theme === "dark" ? "light" : "dark";
-      localStorage.setItem("theme", state.theme);
+      typeof window !== undefined && localStorage.setItem("theme", state.theme);
     },
   },
 });
