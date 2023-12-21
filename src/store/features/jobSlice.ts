@@ -9,7 +9,7 @@ type State = {
 
 const initialState: State = {
   jobData: data,
-  theme: localStorage.getItem("theme") || "light",
+  theme: window.localStorage.getItem("theme") || "light",
 };
 
 export const jobSlice = createSlice({
@@ -18,7 +18,7 @@ export const jobSlice = createSlice({
   reducers: {
     changeTheme: (state, action) => {
       state.theme = state.theme === "dark" ? "light" : "dark";
-      localStorage.setItem("theme", state.theme);
+      window.localStorage.setItem("theme", state.theme);
     },
   },
 });
