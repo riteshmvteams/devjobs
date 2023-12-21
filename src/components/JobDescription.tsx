@@ -9,7 +9,7 @@ type Props = {
 
 export default function JobDescription({ singleJobPosting }: Props) {
   return (
-    <div className="max-w-5xl mx-auto w-full bg-white mt-16 mb-12 rounded-lg py-10 px-8 flex flex-col gap-10">
+    <div className="max-w-5xl mx-auto w-full bg-white mt-16 mb-12 rounded-lg py-10 px-8 flex flex-col gap-10 dark:bg-[#19202D]">
       <div className="flex justify-between items-center">
         <JobIntro singleJobPosting={singleJobPosting} />
 

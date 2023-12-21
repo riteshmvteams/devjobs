@@ -13,7 +13,7 @@ export default function RequirementListing({
 }: Props) {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-xl font-semibold">{title}</h2>
+      <h2 className="text-xl font-semibold dark:text-white">{title}</h2>
       <p className="text-gray-500">{content}</p>
 
       <ul className="flex flex-col gap-3 ">

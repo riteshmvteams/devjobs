@@ -1,23 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../../public/assets/data.json";
 import { JobObj } from "@/utils/types";
-import { RootState } from "../store";
 
-const initialState: { jobData: JobObj[] } = {
+type State = {
+  jobData: JobObj[];
+  theme: string;
+};
+
+const initialState: State = {
   jobData: data,
+  theme: localStorage.getItem("theme") || "light",
 };
 
 export const jobSlice = createSlice({
   name: "job",
   initialState,
   reducers: {
-    addData: () => {},
+    changeTheme: (state, action) => {
+      state.theme = state.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", state.theme);
+    },
   },
 });
 
-export const { addData } = jobSlice.actions;
-
-// Other code such as selectors can use the imported `RootState` type
-export const JobState = (state: RootState) => state?.job;
+export const { changeTheme } = jobSlice.actions;
 
 export default jobSlice.reducer;

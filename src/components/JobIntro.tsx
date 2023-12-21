@@ -18,7 +18,7 @@ export default function JobIntro({ singleJobPosting }: Props) {
         </p>
       </div>
 
-      <h2 className="text-xl font-bold text-black group-hover:text-blue-600 duration-200 transition-all">
+      <h2 className="text-xl font-bold text-black group-hover:text-blue-600 duration-200 transition-all dark:text-white">
         {singleJobPosting?.position}
       </h2>
       <p className="text-lg text-gray-400 font-medium">

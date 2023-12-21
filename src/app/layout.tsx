@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${kumbhSans.className} bg-[#F4F6F8]`}>
+      <body className={`${kumbhSans.className} bg-[#F4F6F8] dark:bg-[#121721]`}>
         <ReduxProvider>
           <Header />
           {children}

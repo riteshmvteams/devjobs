@@ -11,7 +11,7 @@ export default function ComapnyDetails({ singleJobPosting }: Props) {
 
   return (
     <div className="max-w-5xl mx-auto w-full">
-      <div className="bg-white -mt-14 rounded-lg flex gap-2 items-center shadow-sm overflow-hidden">
+      <div className="bg-white -mt-14 rounded-lg flex gap-2 items-center shadow-sm overflow-hidden dark:bg-[#19202D]">
         <figure
           className="w-[140px] h-[143px]"
           style={{
@@ -28,7 +28,9 @@ export default function ComapnyDetails({ singleJobPosting }: Props) {
         </figure>
         <div className="px-6 flex justify-between grow">
           <div className="flex flex-col gap-1.5">
-            <h2 className="text-2xl font-semibold text-black">{company}</h2>
+            <h2 className="text-2xl font-semibold text-black dark:text-white">
+              {company}
+            </h2>
             <p className="text-gray-400">{website}</p>
           </div>
           <Button
