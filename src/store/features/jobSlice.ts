@@ -9,9 +9,10 @@ type State = {
 
 const initialState: State = {
   jobData: data,
-  theme: localStorage.getItem("theme")
-    ? localStorage.getItem("theme")
-    : "light",
+  theme:
+    typeof window !== undefined && localStorage.getItem("theme")
+      ? localStorage.getItem("theme")
+      : "light",
 };
 
 export const jobSlice = createSlice({
