@@ -19,10 +19,10 @@ export default function SingleJobDetail({ params }: Props) {
   const singleJobPosting = jobs?.filter((job) => job?.id === +params?.id)[0];
 
   return (
-    <main className="max-w-5xl mx-auto flex flex-col">
+    <main className="flex flex-col min-h-screen">
       <ComapnyDetails singleJobPosting={singleJobPosting} />
-      <JobDescription />
-      <ExtraInfo />
+      <JobDescription singleJobPosting={singleJobPosting} />
+      <ExtraInfo singleJobPosting={singleJobPosting} />
     </main>
   );
 }
