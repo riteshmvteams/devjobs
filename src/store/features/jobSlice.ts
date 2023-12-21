@@ -4,12 +4,14 @@ import { JobObj } from "@/utils/types";
 
 type State = {
   jobData: JobObj[];
-  theme: string;
+  theme: string | null;
 };
 
 const initialState: State = {
   jobData: data,
-  theme: window.localStorage.getItem("theme") || "light",
+  theme: localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : "light",
 };
 
 export const jobSlice = createSlice({
@@ -18,7 +20,7 @@ export const jobSlice = createSlice({
   reducers: {
     changeTheme: (state, action) => {
       state.theme = state.theme === "dark" ? "light" : "dark";
-      window.localStorage.setItem("theme", state.theme);
+      localStorage.setItem("theme", state.theme);
     },
   },
 });

@@ -16,7 +16,7 @@ export default function ToggleSwitch() {
   };
 
   useEffect(() => {
-    document.documentElement.className = theme;
+    document.documentElement.className = theme!;
   }, [theme]);
 
   return (
