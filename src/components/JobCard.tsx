@@ -5,7 +5,7 @@ import React from "react";
 
 export default function JobCard({ job }: { job: JobObj }) {
   return (
-    <li className="bg-white px-6 pb-6 rounded-xl group transition-all duration-200 scale-75 zoom__animate hover:opacity-90">
+    <li className="bg-white px-6 pb-6 rounded-xl group transition-all duration-200 scale-50 zoom__animate hover:opacity-90">
       <Link href={`${job.id}`}>
         <figure
           className="w-12 h-12 rounded-lg border -mt-6 ml-4"
