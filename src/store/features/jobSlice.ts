@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../../public/assets/data.json";
@@ -23,7 +23,9 @@ export const jobSlice = createSlice({
   reducers: {
     changeTheme: (state, action) => {
       state.theme = state.theme === "dark" ? "light" : "dark";
-      // typeof window !== undefined && localStorage.setItem("theme", state.theme);
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("theme", state.theme);
+      }
     },
   },
 });
