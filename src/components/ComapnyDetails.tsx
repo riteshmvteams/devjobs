@@ -13,7 +13,7 @@ export default function ComapnyDetails({ singleJobPosting }: Props) {
     <div className="max-w-5xl mx-auto w-full px-4">
       <div className="bg-white -mt-6 md:-mt-14 rounded-lg flex items-center shadow-sm md:overflow-hidden dark:bg-[#19202D] flex-col md:flex-row gap-6 md:gap-2 pb-6 md:pb-0">
         <figure
-          className="w-12 h-12 -mt-6 md:mt-0 md:w-[140px] md:h-[143px] rounded-lg md:rounded-none"
+          className="w-16 h-16 -mt-8 md:mt-0 md:w-[140px] md:h-[143px] rounded-lg md:rounded-none"
           style={{
             background: logoBackground,
           }}

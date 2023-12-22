@@ -70,8 +70,8 @@ export default function Filters() {
   }, [dispatch]);
 
   return (
-    <div className=" bg-white rounded-lg relative -top-10 grid grid-cols-3 shadow-sm px-4 dark:bg-[#19202D]">
-      <div className="border-r border-r-gray-200 py-4 relative px-4 dark:border-r-gray-700">
+    <div className=" bg-white rounded-lg relative -top-10 grid xl:grid-cols-3 shadow-sm px-2 sm:px-4 dark:bg-[#19202D]">
+      <div className="border-b border-b-gray-200 xl:border-b-0 xl:border-r border-r-gray-200 py-4 relative px-4 dark:border-r-gray-700">
         <input
           name="title"
           type="text"
@@ -90,7 +90,7 @@ export default function Filters() {
           />
         </figure>
       </div>
-      <div className="border-r border-r-gray-200 py-4 relative px-4 dark:border-r-gray-700">
+      <div className="border-b border-b-gray-200 xl:border-b-0 xl:border-r border-r-gray-200 py-4 relative px-4 dark:border-r-gray-700">
         <input
           name="location"
           type="text"
@@ -132,7 +132,7 @@ export default function Filters() {
                 />
               ) : null}
             </span>
-            <span className="text-2xl font-semibold text-black group-hover:opacity-70 transition-all duration-200 dark:text-white">
+            <span className="text-lg sm:text-2xl font-semibold text-black group-hover:opacity-70 transition-all duration-200 dark:text-white">
               Full Time only
             </span>
           </button>
