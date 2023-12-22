@@ -5,6 +5,7 @@ import { JobObj } from "@/utils/types";
 type State = {
   jobData: JobObj[];
   theme: string | null;
+  filteredJobs: JobObj[] | [];
 };
 
 const initialState: State = {
@@ -13,6 +14,7 @@ const initialState: State = {
     typeof window !== "undefined" && localStorage.getItem("theme")
       ? localStorage.getItem("theme")
       : "light",
+  filteredJobs: [],
 };
 
 export const jobSlice = createSlice({
@@ -25,9 +27,11 @@ export const jobSlice = createSlice({
         localStorage.setItem("theme", state.theme);
       }
     },
+
+    filterJobs: (state, action) => {},
   },
 });
 
-export const { changeTheme } = jobSlice.actions;
+export const { changeTheme, filterJobs } = jobSlice.actions;
 
 export default jobSlice.reducer;
