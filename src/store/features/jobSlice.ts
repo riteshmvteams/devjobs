@@ -1,3 +1,5 @@
+"use client";
+
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../../public/assets/data.json";
 import { JobObj } from "@/utils/types";
