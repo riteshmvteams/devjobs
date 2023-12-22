@@ -28,7 +28,9 @@ export const jobSlice = createSlice({
       }
     },
 
-    filterJobs: (state, action) => {},
+    filterJobs: (state, action) => {
+      console.log(action.payload, "payload");
+    },
   },
 });
 

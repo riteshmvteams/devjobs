@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Button from "./Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { filterJobs } from "@/store/features/jobSlice";
 
 type FilterDetails = {
   title: string;
@@ -15,6 +17,8 @@ export default function Filters() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+  const dispatch = useDispatch();
+  const params = new URLSearchParams(searchParams);
 
   const [filterDetails, setFilterDetails] = useState<FilterDetails>({
     title: searchParams.get("title")?.toString() || "",
@@ -35,7 +39,6 @@ export default function Filters() {
   };
 
   const handleSearch = () => {
-    const params = new URLSearchParams(searchParams);
     if (filterDetails.title !== "") {
       params.set("title", filterDetails.title);
     } else {
@@ -49,7 +52,22 @@ export default function Filters() {
     params.set("fulltime", filterDetails.fullTime.toString());
 
     replace(`${pathname}?${params.toString()}`);
+
+    dispatch(filterJobs(filterDetails));
   };
+
+  useEffect(() => {
+    if (
+      !filterDetails.fullTime &&
+      !filterDetails.title &&
+      !filterDetails.location
+    ) {
+      params.delete("fulltime");
+      replace(`${pathname}?${params.toString()}`);
+      return;
+    }
+    dispatch(filterJobs(filterDetails));
+  }, [dispatch]);
 
   return (
     <div className=" bg-white rounded-lg relative -top-10 grid grid-cols-3 shadow-sm px-4 dark:bg-[#19202D]">
@@ -59,7 +77,6 @@ export default function Filters() {
           type="text"
           className="w-full py-4 outline-none pl-11 pr-4 placeholder:text-gray-400 font-medium text-lg bg-transparent dark:text-white"
           placeholder="Filter by title, companies, expertise.."
-          // defaultValue={searchParams.get("title")?.toString()}
           onChange={(e) => inputSearch(e.target.value, e.target.name)}
           value={filterDetails.title}
         />
@@ -79,7 +96,6 @@ export default function Filters() {
           type="text"
           className="w-full py-4 outline-none pl-11 pr-4 placeholder:text-gray-400 font-medium text-lg bg-transparent dark:text-white"
           placeholder="Filter by Location.."
-          // defaultValue={searchParams.get("location")?.toString()}
           onChange={(e) => inputSearch(e.target.value, e.target.name)}
           value={filterDetails.location}
         />
