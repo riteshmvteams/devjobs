@@ -29,7 +29,20 @@ export const jobSlice = createSlice({
     },
 
     filterJobs: (state, action) => {
-      console.log(action.payload, "payload");
+      const { title, location, fullTime } = action.payload;
+      const contract = fullTime ? "full time" : "part time";
+
+      const filtered = state?.jobData.filter((job) => {
+        return (
+          job.position.toLowerCase().indexOf(title.toLowerCase()) > -1 &&
+          job.location.toLowerCase().indexOf(location.toLowerCase()) > -1 &&
+          job.contract.toLowerCase().indexOf(contract.toLowerCase()) > -1
+        );
+      });
+
+      state.filteredJobs = filtered;
+
+      console.log(state.filteredJobs);
     },
   },
 });
