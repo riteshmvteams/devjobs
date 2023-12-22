@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function ToggleSwitch() {
   const theme = useSelector((state: RootState) => state?.job?.theme);
   const dispatch = useDispatch();
-  const [toggle, setToggle] = useState(theme === "dark" ? true : false);
+  const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
     setToggle((prev) => !prev);
@@ -17,6 +17,7 @@ export default function ToggleSwitch() {
 
   useEffect(() => {
     document.documentElement.className = theme!;
+    setToggle(theme === "dark" ? true : false);
   }, [theme]);
 
   return (
