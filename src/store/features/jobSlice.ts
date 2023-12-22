@@ -41,8 +41,6 @@ export const jobSlice = createSlice({
       });
 
       state.filteredJobs = filtered;
-
-      console.log(state.filteredJobs);
     },
   },
 });
