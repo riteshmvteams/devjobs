@@ -30,7 +30,7 @@ export default function JobListings() {
   return (
     <div className="mt-16 pb-32">
       {listing.length > 0 ? (
-        <ul className="grid grid-cols-3 gap-x-8 gap-y-20">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
           {listing?.slice(0, show)?.map((job: JobObj) => {
             return <JobCard key={job.id} job={job} />;
           })}

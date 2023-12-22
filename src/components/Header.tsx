@@ -5,14 +5,7 @@ import ToggleSwitch from "./ToggleSwitch";
 
 export default function Header() {
   return (
-    <header
-      className="h-64 w-full"
-      style={{
-        backgroundImage: `url("/assets/desktop/bg-pattern-header.svg")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <header className="h-40 px-6 md:h-64 w-full xl:bg-[url('/assets/desktop/bg-pattern-header.svg')] md:bg-[url('/assets/tablet/bg-pattern-header.svg')] bg-no-repeat bg-cover bg-[url('/assets/mobile/bg-pattern-header.svg')]">
       <div className="flex justify-between container mx-auto h-[80%] items-center">
         <Link href="/" className="hover:opacity-80 transition-all duration-300">
           <Image
